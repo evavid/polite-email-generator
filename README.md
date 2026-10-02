@@ -1,21 +1,37 @@
+# Polite Email Generator
 
-# Polite and fast email generator using OpenAI
+**Describe what you need to say, and AI writes it as a polite, well-structured email.**
 
-This is a demo app using OpenAI Api, developed by Eva Vidmar, Julija Stopar and Jure Malič at EESTEC Hackaton 2022. The use of this app is to
-generate email fast and with a polite tone. The user only needs to provide basic information and the app generates a polite email, that the user can accept or reject. The purpose is to help people better understand each other through email with no hard feelings and spend less time thinking about writting polite and appropriate mail.
+We built this in one weekend at the **EESTEC Hackathon 2022**. Writing emails that are clear and also kind takes time, especially when the topic is awkward. You enter who the email is for, their organisation, what you need and your signature. The app drafts a polite email with a proper opening and closing, which you can accept or reject.
 
-#Team members
-Eva Vidmar - https://www.linkedin.com/in/eva-vidmar-899b56168/
-Julija Stopar - https://www.linkedin.com/in/julija-stopar/
-Jure Malič - https://www.linkedin.com/in/jure-mali%C4%8D-892510202/
+## How it works
 
+1. A small Flask web app collects four fields: recipient, affiliation, purpose and signature.
+2. The fields go into a prompt that asks the model for a polite, constructive email without harsh wording.
+3. OpenAI's GPT-3 (`text-davinci-002`) writes the draft, and the app shows it on the page.
 
-## Setup
+## Tech
 
-1. If you don’t have Python installed, [install it from here](https://www.python.org/downloads/)
+Python · Flask · OpenAI API · HTML and CSS
 
-2. cd openai-quickstart-python
+## Run it locally
 
-3. RUN: python -m flask run
+```bash
+git clone https://github.com/evavid/polite-email-generator.git
+cd polite-email-generator
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env            # then add your OPENAI_API_KEY
+flask run
+```
 
-4. Open in localhost on:  http://127.0.0.1:5000/
+Then open http://127.0.0.1:5000.
+
+> **Note:** this is the 2022 hackathon version. It uses the legacy OpenAI SDK (`openai==0.11`) and the `text-davinci-002` model, which OpenAI has since retired. To run it today, update the API call to the current SDK and a current model.
+
+## Team
+
+- **Eva Vidmar**: [LinkedIn](https://www.linkedin.com/in/eva-vidmar-899b56168/)
+- **Julija Stopar**: [LinkedIn](https://www.linkedin.com/in/julija-stopar/)
+- **Jure Malič**: [LinkedIn](https://www.linkedin.com/in/jure-mali%C4%8D-892510202/)

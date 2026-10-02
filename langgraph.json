@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "polite_email": "./src/polite_email/graph.py:graph"
+  },
+  "env": ".env"
+}
